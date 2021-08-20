@@ -9,5 +9,5 @@ interface DisneyRepository {
 
     fun getCharactersAsFlow(): Flow<PagingData<CharacterSnippet>>
 
-    fun getCharacter(characterId: Int): Result<Character>
+    suspend fun getCharacter(characterId: Int): Result<Character>
 }

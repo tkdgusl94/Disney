@@ -23,7 +23,7 @@ class DisneyRepositoryImpl @Inject constructor(
         }
     }
 
-    override fun getCharacter(characterId: Int): Result<Character> {
+    override suspend fun getCharacter(characterId: Int): Result<Character> {
         TODO("Not yet implemented")
     }
 }
