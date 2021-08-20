@@ -28,6 +28,7 @@ dependencies {
     kapt          (Google.HILT_ANDROID_COMPILER)
 
     implementation(Libraries.FRESCO)
+    implementation "com.github.bumptech.glide:glide:4.12.0"
 
     testImplementation(UnitTest.JUNIT)
     testImplementation(UnitTest.ARCH_CORE)
