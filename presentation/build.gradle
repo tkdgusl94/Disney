@@ -1,5 +1,5 @@
 plugins {
-    id 'com.android.application'
+    id 'com.android.library'
     id 'kotlin-android'
     id 'kotlin-kapt'
     id 'dagger.hilt.android.plugin'
@@ -7,16 +7,8 @@ plugins {
 
 apply from: rootProject.file("android.gradle")
 
-android {
-    defaultConfig {
-        applicationId "com.leveloper.disney"
-    }
-}
-
 dependencies {
     implementation(project(Modules.DOMAIN))
-    implementation(project(Modules.PRESENTATION))
-    implementation(project(Modules.DATA))
 
     implementation(Kotlin.KOTLIN_STDLIB)
     implementation(Kotlin.COROUTINES_CORE)
@@ -24,19 +16,21 @@ dependencies {
 
     implementation(AndroidX.CORE_KTX)
     implementation(AndroidX.APP_COMPAT)
-    implementation(AndroidX.ROOM_RUNTIME)
-    implementation(AndroidX.ROOM_KTX)
-    kapt          (AndroidX.ROOM_COMPILER)
+    implementation(AndroidX.ACTIVITY_KTX)
+    implementation(AndroidX.FRAGMENT_KTX)
+    implementation(AndroidX.LIFECYCLE_VIEWMODEL_KTX)
+    implementation(AndroidX.LIFECYCLE_LIVEDATA_KTX)
+    implementation(AndroidX.PAGING)
+    implementation(AndroidX.SWIPE_REFRESH_LAYOUT)
 
     implementation(Google.MATERIAL)
     implementation(Google.HILT_ANDROID)
     kapt          (Google.HILT_ANDROID_COMPILER)
 
-    implementation(Libraries.RETROFIT)
-    implementation(Libraries.RETROFIT_CONVERTER_GSON)
-    implementation(Libraries.OKHTTP_LOGGING_INTERCEPTOR)
-
     implementation(Libraries.FRESCO)
 
-    debugImplementation(Libraries.LEAKCANARY)
+    testImplementation(UnitTest.JUNIT)
+    testImplementation(UnitTest.ARCH_CORE)
+    testImplementation(UnitTest.MOCKK)
+    testImplementation(UnitTest.COROUTINES_TEST)
 }
