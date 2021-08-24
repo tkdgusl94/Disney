@@ -4,8 +4,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.viewModelScope
-import com.leveloper.disney.domain.model.onError
-import com.leveloper.disney.domain.model.onSuccess
+import com.leveloper.core.onError
+import com.leveloper.core.onSuccess
 import com.leveloper.disney.domain.repository.DisneyRepository
 import com.leveloper.disney.presentation.base.BaseViewModel
 import com.leveloper.disney.presentation.base.Event
@@ -40,7 +40,7 @@ class CharacterDetailViewModel @Inject constructor(
     }
 
     fun onClickBackButton(): Boolean {
-        println("!!!!!!!!!!!!!!!!!!!!!!!!")
+        _message.value = Event("on click back button")
         return true
     }
 }

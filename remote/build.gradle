@@ -1,0 +1,27 @@
+plugins {
+    id 'java-library'
+    id 'kotlin'
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+}
+
+dependencies {
+    implementation project(Modules.CORE)
+    implementation project(Modules.DATA)
+
+    implementation(Kotlin.KOTLIN_STDLIB)
+    implementation(Kotlin.COROUTINES_CORE)
+
+    implementation(JavaX.INJECT)
+
+    implementation(AndroidX.PAGING_COMMON)
+
+    implementation(Google.GSON)
+
+    implementation(Libraries.RETROFIT)
+    implementation(Libraries.RETROFIT_CONVERTER_GSON)
+    implementation(Libraries.OKHTTP_LOGGING_INTERCEPTOR)
+}

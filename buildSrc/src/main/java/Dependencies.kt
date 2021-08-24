@@ -1,7 +1,10 @@
 object Modules {
+    const val CACHE = ":cache"
+    const val CORE = ":core"
     const val DOMAIN = ":domain"
     const val DATA = ":data"
     const val PRESENTATION = ":presentation"
+    const val REMOTE = ":remote"
 }
 
 object Versions {

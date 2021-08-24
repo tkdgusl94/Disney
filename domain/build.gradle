@@ -9,6 +9,8 @@ java {
 }
 
 dependencies {
+    implementation project(Modules.CORE)
+
     implementation(Kotlin.KOTLIN_STDLIB)
     implementation(Kotlin.COROUTINES_CORE)
 

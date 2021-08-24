@@ -14,6 +14,9 @@ android {
 }
 
 dependencies {
+    implementation(project(Modules.CORE))
+    implementation(project(Modules.REMOTE))
+    implementation(project(Modules.CACHE))
     implementation(project(Modules.DOMAIN))
     implementation(project(Modules.PRESENTATION))
     implementation(project(Modules.DATA))
