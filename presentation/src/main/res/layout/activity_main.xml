@@ -33,7 +33,6 @@
                 android:layout_height="match_parent"
                 app:layoutManager="@{layoutManager}"
                 app:adapter="@{adapter}"
-                app:lifecycleOwner="@{}"
                 tools:listitem="@layout/item_character"/>
         </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -3,11 +3,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="../Disney/app/src/main/res/layout/toolbar_base.xml" value="0.35885416666666664" />
+        <entry key="../Disney/presentation/src/main/res/drawable/ic_back_dark.xml" value="0.375" />
         <entry key="../Disney/presentation/src/main/res/layout/activity_character_detail.xml" value="0.35885416666666664" />
         <entry key="../Disney/presentation/src/main/res/layout/activity_detatil.xml" value="0.35885416666666664" />
         <entry key="../Disney/presentation/src/main/res/layout/activity_main.xml" value="0.35885416666666664" />
         <entry key="../Disney/presentation/src/main/res/layout/item_character.xml" value="0.35885416666666664" />
         <entry key="../Disney/presentation/src/main/res/layout/item_characters_load_state.xml" value="0.35885416666666664" />
+        <entry key="../Disney/presentation/src/main/res/layout/toolbar_base.xml" value="0.35885416666666664" />
       </map>
     </option>
   </component>

@@ -15,5 +15,16 @@
         android:layout_height="match_parent"
         app:toast="@{vm.message}">
 
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <include
+                layout="@layout/toolbar_base"
+                app:onBackPressed="@{true}"
+                app:action="@{() -> vm.onClickBackButton()}" />
+
+        </com.google.android.material.appbar.AppBarLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

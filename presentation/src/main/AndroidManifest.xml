@@ -4,8 +4,11 @@
 
     <application>
 
-        <activity android:name=".feature.main.MainActivity"/>
+        <activity android:name=".feature.main.MainActivity" />
 
-        <activity android:name=".feature.detail.CharacterDetailActivity"/>
+        <activity
+            android:name=".feature.detail.CharacterDetailActivity"
+            android:theme="@style/CharacterDetailTheme" />
+
     </application>
 </manifest>

@@ -4,6 +4,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.viewModelScope
+import com.leveloper.disney.domain.model.onError
+import com.leveloper.disney.domain.model.onSuccess
 import com.leveloper.disney.domain.repository.DisneyRepository
 import com.leveloper.disney.presentation.base.BaseViewModel
 import com.leveloper.disney.presentation.base.Event
@@ -28,6 +30,17 @@ class CharacterDetailViewModel @Inject constructor(
 
         viewModelScope.launch {
             disneyRepository.getCharacter(characterId)
+                .onSuccess {
+                    println("character: $it")
+                }
+                .onError {
+                    println("error: $it")
+                }
         }
+    }
+
+    fun onClickBackButton(): Boolean {
+        println("!!!!!!!!!!!!!!!!!!!!!!!!")
+        return true
     }
 }

@@ -9,18 +9,18 @@ import com.leveloper.disney.domain.model.CharacterSnippet
 import com.leveloper.disney.presentation.databinding.ItemCharacterBinding
 import com.leveloper.disney.presentation.ext.setOnSingleClickListener
 
-class CharacterAdapter(private val onItemClick: (id: Int) -> Unit) : PagingDataAdapter<CharacterSnippet, CharacterAdapter.ViewH>(diffCallback) {
+class CharacterAdapter(private val onItemClick: (id: Int) -> Unit) : PagingDataAdapter<CharacterSnippet, CharacterAdapter.CharacterViewHolder>(diffCallback) {
 
     private lateinit var layoutInflater: LayoutInflater
 
     override fun getItemViewType(position: Int) = VIEW_TYPE
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewH {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CharacterViewHolder {
         if (!::layoutInflater.isInitialized) {
             layoutInflater = LayoutInflater.from(parent.context)
         }
 
-        return ViewH(ItemCharacterBinding.inflate(layoutInflater, parent, false)).apply {
+        return CharacterViewHolder(ItemCharacterBinding.inflate(layoutInflater, parent, false)).apply {
             this.itemView.setOnSingleClickListener {
                 val item = getItem(bindingAdapterPosition) ?: return@setOnSingleClickListener
                 onItemClick(item.id)
@@ -28,11 +28,11 @@ class CharacterAdapter(private val onItemClick: (id: Int) -> Unit) : PagingDataA
         }
     }
 
-    override fun onBindViewHolder(holder: ViewH, position: Int) {
+    override fun onBindViewHolder(holder: CharacterViewHolder, position: Int) {
         holder.bind(getItem(position) ?: return)
     }
 
-    inner class ViewH(private val binding: ItemCharacterBinding) : RecyclerView.ViewHolder(binding.root) {
+    inner class CharacterViewHolder(private val binding: ItemCharacterBinding) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(character: CharacterSnippet) {
             binding.character = character

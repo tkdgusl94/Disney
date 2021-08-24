@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.text.TextUtils"/>
+
+        <import type="kotlin.jvm.functions.Function0"/>
+
+        <variable
+            name="onBackPressed"
+            type="Boolean" />
+
+        <variable
+            name="action"
+            type="Function0&lt;Boolean>" />
+
+        <variable
+            name="title"
+            type="CharSequence" />
+
+    </data>
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/darker_gray"
+        app:navigationIcon="@{onBackPressed ? @drawable/ic_back_dark : null}"
+        app:onBackPressed="@{onBackPressed}"
+        app:action="@{action}">
+
+        <TextView
+            android:id="@+id/toolbar_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@{title}"
+            android:textSize="21sp"
+            app:gone="@{TextUtils.isEmpty(title)}"
+            tools:text="Title"/>
+
+    </androidx.appcompat.widget.Toolbar>
+</layout>
