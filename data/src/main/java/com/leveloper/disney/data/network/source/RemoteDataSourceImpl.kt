@@ -13,4 +13,8 @@ class RemoteDataSourceImpl @Inject constructor(
     override suspend fun getCharacters(page: Int) = safeApiCall(Dispatchers.IO) {
         service.getCharacters(page)
     }
+
+    override suspend fun getCharacter(characterId: Int) = safeApiCall(Dispatchers.IO) {
+        service.getCharacter(characterId)
+    }
 }

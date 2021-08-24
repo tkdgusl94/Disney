@@ -1,31 +1,28 @@
 package com.leveloper.disney.data.network
 
-import com.google.gson.Gson
-import com.google.gson.reflect.TypeToken
-import com.leveloper.disney.domain.model.Result
+import com.leveloper.disney.domain.model.Resource
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.withContext
 import retrofit2.HttpException
 import java.io.IOException
-import java.lang.Exception
 
-suspend fun <T> safeApiCall(dispatcher: CoroutineDispatcher, apiCall: suspend () -> T): Result<T> {
+suspend fun <T> safeApiCall(dispatcher: CoroutineDispatcher, apiCall: suspend () -> T): Resource<T> {
     return withContext(dispatcher) {
         try {
-            Result.Success(apiCall.invoke())
+            Resource.Success(apiCall.invoke())
         } catch (throwable: Throwable) {
             when (throwable) {
                 is HttpException -> {
-                    Result.Error("http exception")
+                    Resource.Error("http exception")
 //                    convertErrorBody(throwable)?.let { errorResponse ->
 //                        Result.Error(errorResponse.error.message)
 //                    } ?: Result.Error("unknown error")
                 }
                 is IOException -> {
-                    Result.Error("network error")
+                    Resource.Error("network error")
                 }
                 else -> {
-                    Result.Error(throwable.message)
+                    Resource.Error(throwable.message)
                 }
             }
         }

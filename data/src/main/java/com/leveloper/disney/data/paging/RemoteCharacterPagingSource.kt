@@ -2,7 +2,7 @@ package com.leveloper.disney.data.paging
 
 import com.leveloper.disney.data.network.dto.CharacterSimpleDto
 import com.leveloper.disney.data.source.RemoteDataSource
-import com.leveloper.disney.domain.model.Result
+import com.leveloper.disney.domain.model.Resource
 import java.lang.Exception
 
 class RemoteCharacterPagingSource(
@@ -15,7 +15,7 @@ class RemoteCharacterPagingSource(
 
             val result = remoteDataSource.getCharacters(page)
 
-            return if (result is Result.Success) {
+            return if (result is Resource.Success) {
                 LoadResult.Page(
                     data = result.value.characters,
                     prevKey = if (page == 1) null else page - 1,

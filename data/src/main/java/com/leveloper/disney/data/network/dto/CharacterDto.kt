@@ -1,6 +1,7 @@
 package com.leveloper.disney.data.network.dto
 
 import com.google.gson.annotations.SerializedName
+import com.leveloper.disney.domain.model.Character
 
 data class CharacterDto(
     @SerializedName("_id")
@@ -35,4 +36,8 @@ data class CharacterDto(
 
     @SerializedName("enemies")
     val enemies: List<String>
-)
+) {
+    fun toModel(): Character {
+        return Character(id, name, image, sourceUrl, films, shortFilms, tvShows, videoGames, parkAttractions, allies, enemies)
+    }
+}

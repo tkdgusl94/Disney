@@ -6,6 +6,8 @@ import com.leveloper.disney.data.paging.RemoteCharacterPagingSource
 import com.leveloper.disney.data.source.RemoteDataSource
 import com.leveloper.disney.domain.model.Character
 import com.leveloper.disney.domain.model.CharacterSnippet
+import com.leveloper.disney.domain.model.Resource
+import com.leveloper.disney.domain.model.map
 import com.leveloper.disney.domain.repository.DisneyRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
@@ -23,7 +25,7 @@ class DisneyRepositoryImpl @Inject constructor(
         }
     }
 
-    override suspend fun getCharacter(characterId: Int): Result<Character> {
-        TODO("Not yet implemented")
+    override suspend fun getCharacter(characterId: Int): Resource<Character> {
+        return remoteDataSource.getCharacter(characterId).map { it.toModel() }
     }
 }
